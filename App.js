@@ -1,35 +1,28 @@
 import React from 'react';
-import { View, Text, StyleSheet, Image } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+
+import StartScreen from './screens/StartScreen';
+import LoginScreen from './screens/LoginScreen';
+import RegisterScreen from './screens/RegisterScreen';
+import LinkPatientScreen from './screens/LinkPatientScreen';
+
+const Stack = createNativeStackNavigator();
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Image
-        source={require('./assets/logo.png')} // Zorg dat jouw logo in deze map zit
-        style={styles.logo}
-        resizeMode="contain"
-      />
-      <Text style={styles.title}>Welkom bij de Medicatie App</Text>
-    </View>
+    <NavigationContainer>
+     <Stack.Navigator initialRouteName="Start" screenOptions={{ headerShown: true }}>
+  <Stack.Screen
+    name="Start"
+    component={StartScreen}
+    options={{ headerShown: false }} // Geen header op de startpagina
+  />
+  <Stack.Screen name="Login" component={LoginScreen} />
+  <Stack.Screen name="Register" component={RegisterScreen} />
+  <Stack.Screen name="LinkPatient" component={LinkPatientScreen} />
+</Stack.Navigator>
+
+    </NavigationContainer>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#D9F4F0',
-    color: '#2C6E75',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  logo: {
-    width: 200,
-    height: 200,
-    marginBottom: 20,
-  },
-  title: {
-    fontSize: 20,
-    color: 'white',
-    fontWeight: 'bold',
-  },
-});
