@@ -1,11 +1,15 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import React from 'react';
+import { View, Text, StyleSheet, Image } from 'react-native';
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
+      <Image
+        source={require('./assets/logo.png')} // Zorg dat jouw logo in deze map zit
+        style={styles.logo}
+        resizeMode="contain"
+      />
+      <Text style={styles.title}>Welkom bij de Medicatie App</Text>
     </View>
   );
 }
@@ -13,8 +17,19 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#D9F4F0',
+    color: '#2C6E75',
     alignItems: 'center',
     justifyContent: 'center',
+  },
+  logo: {
+    width: 200,
+    height: 200,
+    marginBottom: 20,
+  },
+  title: {
+    fontSize: 20,
+    color: 'white',
+    fontWeight: 'bold',
   },
 });
