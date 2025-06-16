@@ -6,21 +6,23 @@ import StartScreen from './screens/StartScreen';
 import LoginScreen from './screens/LoginScreen';
 import RegisterScreen from './screens/RegisterScreen';
 import LinkPatientScreen from './screens/LinkPatientScreen';
+import HomeScreen from './screens/HomeScreen';
 
 const Stack = createNativeStackNavigator();
 
 export default function App() {
   return (
     <NavigationContainer>
-     <Stack.Navigator initialRouteName="Start" screenOptions={{ headerShown: true }}>
+     <Stack.Navigator initialRouteName="start" screenOptions={{ headerShown: true }}>
   <Stack.Screen
-    name="Start"
+    name="start"
     component={StartScreen}
-    options={{ headerShown: false }} // Geen header op de startpagina
+    options={{ headerShown: false }}
   />
   <Stack.Screen name="Login" component={LoginScreen} />
   <Stack.Screen name="Register" component={RegisterScreen} />
   <Stack.Screen name="LinkPatient" component={LinkPatientScreen} />
+  <Stack.Screen name="Home" component={HomeScreen} />
 </Stack.Navigator>
 
     </NavigationContainer>
